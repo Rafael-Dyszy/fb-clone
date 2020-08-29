@@ -8,11 +8,15 @@ import ChatIcon from '@material-ui/icons/Chat';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import ExpandMoreOutLined from '@material-ui/icons/ExpandMoreOutlined';
+import { useStateValue } from '../../StateProvider';
 
 function Sidebar() {
+  // eslint-disable-next-line
+  const [{ user }, dispatch] = useStateValue();
+
   return (
     <div className="sidebar">
-      <SidebarRow src="happy2.jpeg" title="Rafael Dyszy" />
+      <SidebarRow src={user.photoURL} title={user.displayName} />
       <SidebarRow
         Icon={LocalHospitalIcon}
         title="COVID-19 Information Center"
